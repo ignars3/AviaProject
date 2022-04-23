@@ -1,0 +1,13 @@
+﻿  Passenger.cpp
+  Pilot.cpp
+D:\SharpFiles\AviaProject\AviaProject\Pilot.cpp(70,20): warning C4018: '<': signed/unsigned mismatch
+D:\SharpFiles\AviaProject\AviaProject\Pilot.cpp(84,20): warning C4018: '<': signed/unsigned mismatch
+  Plane.cpp
+D:\SharpFiles\AviaProject\AviaProject\Plane.cpp(67,20): warning C4018: '<': signed/unsigned mismatch
+D:\SharpFiles\AviaProject\AviaProject\Plane.cpp(74,20): warning C4018: '<': signed/unsigned mismatch
+D:\SharpFiles\AviaProject\AviaProject\Plane.cpp(88,20): warning C4018: '<': signed/unsigned mismatch
+D:\SharpFiles\AviaProject\AviaProject\Plane.cpp(104,20): warning C4018: '<': signed/unsigned mismatch
+  Repository.cpp
+  Ticket.cpp
+  Generating Code...
+  AviaProject.vcxproj -> D:\SharpFiles\AviaProject\Debug\AviaProject.exe
