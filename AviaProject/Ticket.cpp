@@ -49,6 +49,16 @@ Plane Ticket::getPlane()const
 	return plane;
 }
 
+string Ticket::fileOutput()
+{
+	string out = "";
+	out += tripName + " " + date + " ";
+	out += passenger.fileOutput() + " ";
+	out += plane.fileOutput();
+
+	return out;
+}
+
 void Ticket::input(istream& in)
 {
 	in >> tripName >> date;
@@ -65,6 +75,12 @@ void Ticket::operator+=(Passenger passenger)
 {
 	this->passenger = passenger;
 }
+
+void Ticket::operator-=(Passenger passenger)
+{
+	this->passenger = Passenger();
+}
+
 
 bool Ticket::operator==(Ticket& ticket)
 {

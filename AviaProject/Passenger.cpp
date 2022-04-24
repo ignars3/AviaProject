@@ -49,6 +49,14 @@ int Passenger::getAge()const
 	return age;
 }
 
+string Passenger::fileOutput()
+{
+	string out = "";
+
+	out += name + " " + surname + " " + passport + " " + to_string(age);
+	return out;
+}
+
 void Passenger::input(istream& in)
 {
 	in >> name >> surname >> passport >> age;

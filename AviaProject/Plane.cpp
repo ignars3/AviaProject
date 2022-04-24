@@ -39,6 +39,29 @@ vector<Pilot> Plane::getPilots()const
 	return pilots;
 }
 
+string Plane::fileOutput()
+{
+	int count = passengers.size();
+	string out = "";
+
+	out += name + " ";
+	out += count + " ";
+
+	for (int i = 0; i < count; i++)
+	{
+		out += passengers[i].fileOutput() + " ";
+	}
+
+	count = pilots.size();
+	out += count + " ";
+	for (int i = 0; i < count; i++)
+	{
+		out += pilots[i].fileOutput() + " ";
+	}
+
+	return out;
+}
+
 void Plane::input(istream& in)
 {
 	int count;

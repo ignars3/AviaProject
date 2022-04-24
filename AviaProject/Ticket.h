@@ -27,17 +27,25 @@ public:
 
 	Plane getPlane()const;
 
+	string fileOutput();
+
 	virtual void input(istream& in);
 
 	virtual void output(ostream& out)const;
 
 	void operator+=(Passenger passenger);
 
+	void operator-=(Passenger passenger);
+
 	bool operator==(Ticket& plane);
 
 	bool operator<(Ticket& a);
 
 	bool operator>(Ticket& a);
+
+	istream& operator>>(istream& in);
+
+	ostream& operator<<(ostream& out)const;
 
 	~Ticket();
 };

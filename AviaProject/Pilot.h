@@ -28,6 +28,8 @@ public:
 
 	vector<Plane> getPlanes()const;
 
+	string fileOutput();
+
 	virtual void input(istream& in);
 
 	virtual void output(ostream& out)const;

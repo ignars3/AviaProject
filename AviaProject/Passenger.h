@@ -30,6 +30,8 @@ public:
 
 	int getAge()const;
 
+	string fileOutput();
+
 	virtual void input(istream& in);
 
 	virtual void output(ostream& out)const;
