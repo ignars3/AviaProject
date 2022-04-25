@@ -21,11 +21,11 @@ public:
 
 	void createPassenger(string name, string surname, string passport, int age);
 	void createPilot(string name, string surname, int experience);
-	void createTicket(string tripName, string date, Plane plane);
+	bool createTicket(string tripName, string date, string planeName);
 	void createPlane(string name);
 
-	void buyTicket(string passport, string tripName, string planeName);
-	void delayTicket(string passport, string tripName, string planeName);
+	void buyTicket(string passport, string tripName, string date);
+	bool delayTicket(string passport, string tripName, string date);
 
 	void changePilot(string name, string surname, string planeName);
 

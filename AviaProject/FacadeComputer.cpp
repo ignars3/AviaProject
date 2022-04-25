@@ -146,9 +146,18 @@ void FacadeComputer::createPilot(string name, string surname, int experience)
 	pilots.push_back(Pilot(name, surname, experience, vector<Plane>()));
 }
 
-void FacadeComputer::createTicket(string tripName, string date, Plane plane) 
+bool FacadeComputer::createTicket(string tripName, string date, string planeName) 
 {
-	tickets.push_back(Ticket(tripName, date, plane, Passenger()));
+	for (int i = 0; i < planes.size(); i++)
+	{
+		if (planes[i].getName() == planeName)
+		{
+			tickets.push_back(Ticket(tripName, date, planes[i], Passenger()));
+			return true;
+		}
+	}
+
+	return false;
 }
 
 void FacadeComputer::createPlane(string name) 
@@ -157,7 +166,7 @@ void FacadeComputer::createPlane(string name)
 }
 
 
-void FacadeComputer::buyTicket(string passport, string tripName, string planeName)
+void FacadeComputer::buyTicket(string passport, string tripName, string date)
 {
 	for (int i = 0; i < passengers.size(); i++)
 	{
@@ -165,7 +174,7 @@ void FacadeComputer::buyTicket(string passport, string tripName, string planeNam
 		{
 			for (int j = 0; j < tickets.size(); j++)
 			{
-				if (tickets[j].getTripName() == tripName && tickets[j].getPlane().getName() == planeName)
+				if (tickets[j].getTripName() == tripName && tickets[j].getDate() == date)
 				{
 					tickets[j] += passengers[i];
 					tickets[j].getPlane() += passengers[i];
@@ -176,7 +185,7 @@ void FacadeComputer::buyTicket(string passport, string tripName, string planeNam
 	}
 }
 
-void FacadeComputer::delayTicket(string passport, string tripName, string planeName)
+bool FacadeComputer::delayTicket(string passport, string tripName, string date)
 {
 	for (int i = 0; i < passengers.size(); i++)
 	{
@@ -184,15 +193,17 @@ void FacadeComputer::delayTicket(string passport, string tripName, string planeN
 		{
 			for (int j = 0; j < tickets.size(); j++)
 			{
-				if (tickets[j].getTripName() == tripName && tickets[j].getPlane().getName() == planeName && tickets[j].getPassenger().getPassport() == passport)
+				if (tickets[j].getTripName() == tripName && tickets[j].getDate() == date && tickets[j].getPassenger().getPassport() == passport)
 				{
 					tickets[j] -= passengers[i];
 					tickets[j].getPlane() -= passengers[i];
-					return;
+					return true;
 				}
 			}
 		}
 	}
+
+	return false;
 }
 
 void FacadeComputer::changePilot(string name, string surname, string planeName)
